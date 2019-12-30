@@ -1,0 +1,31 @@
+{
+  "name": "edwardcheung99-final-project",
+  "version": "1.0.0",
+  "description": "Communicating with friends and family is an important part of daily life. However, not everyone will have the time to meet in person or make a phone call. This is where What Chat comes into play.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nyu-csci-ua-0480-001-fall-2019/edwardcheung99-final-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nyu-csci-ua-0480-001-fall-2019/edwardcheung99-final-project/issues"
+  },
+  "homepage": "https://github.com/nyu-csci-ua-0480-001-fall-2019/edwardcheung99-final-project#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "hbs": "^4.0.6",
+    "mongoose": "^5.7.7",
+    "socket.io": "^2.3.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.6.0",
+    "eslint-plugin-mocha": "^6.2.1",
+    "mocha": "^6.2.2"
+  }
+}
