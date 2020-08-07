@@ -23,7 +23,7 @@ const Chatroom = mongoose.model('Chatroom');
 
 //Route handling for the main page to redirect to the chat making page
 app.get('/', (req, res) => {
-	res.redirect('/make');
+	res.redirect('/chat');
 });
 
 //Route handling for the page to create a chat
