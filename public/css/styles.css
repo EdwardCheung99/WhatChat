@@ -5,3 +5,7 @@ body{
 .whiteBGcolor{
 	background-color: white;
 }
+
+.fullHeight{
+	height: 80vh;
+}

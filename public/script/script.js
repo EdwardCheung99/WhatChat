@@ -16,6 +16,8 @@ window.onload = function(){
 		const formattedMsg = "[" + time + "] " + user + ": " + messageStr; 
 		msgElem.innerText = formattedMsg;
 		msgList.append(msgElem);
+		const messageBody = msgList;
+		messageBody.scrollTop = messageBody.scrollHeight - messageBody.clientHeight; //scrolls to bottom
 	}
 
 	socket.emit('joinChat', cName, userFilter, msgFilter);
