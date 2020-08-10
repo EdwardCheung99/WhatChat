@@ -13,8 +13,19 @@ window.onload = function(){
 
 	function addMessage(user, messageStr, time){
 		const msgElem = document.createElement('div');
-		const formattedMsg = "[" + time + "] " + user + ": " + messageStr; 
-		msgElem.innerText = formattedMsg;
+		const msgTitle = document.createElement('div');
+		const msgTime = document.createElement('div');
+		const msgText = document.createElement('div');
+		msgElem.classList.add("mt-2");
+		msgElem.classList.add("mb-2");
+		msgTitle.classList.add("msgName");
+		msgTime.classList.add("msgTime");
+		msgTitle.innerText = user;
+		msgTime.innerText = time;
+		msgText.innerText = messageStr;
+		msgElem.append(msgTitle);
+		msgElem.append(msgTime);
+		msgElem.append(msgText);
 		msgList.append(msgElem);
 		const messageBody = msgList;
 		messageBody.scrollTop = messageBody.scrollHeight - messageBody.clientHeight; //scrolls to bottom

@@ -9,3 +9,13 @@ body{
 .fullHeight{
 	height: 80vh;
 }
+
+.msgName{
+	font-weight: bold;
+	float: left;
+	margin-right: 5px;
+}
+
+.msgTime{
+	font-weight: lighter;
+}
