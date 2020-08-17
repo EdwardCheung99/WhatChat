@@ -6,13 +6,13 @@
 				<div class="row">
 				{{#each chats}}
 					<div class="col-md-4">
-						<a href="/chat/{{this.cName}}" class="list-group-item list-group-item-action">{{this.cName}}</a>
+						<a href="/chat/{{this.cname}}" class="list-group-item list-group-item-action">{{this.cname}}</a>
 					</div>
 				{{/each}}
 				</div>
 			</ul>
 			<div class="mt-5 mb-2">Can't find a specific chat? Search for it here:</div>
-			<form method="" action="">
+			<form method="GET" action="/chat">
 				<div class="form-group justify-content-center row no-gutters">
 					<div class="col-sm-10">
 						<input type="text" class="form-control" placeholder="Search for a Chat" name="cName" autocomplete="off">

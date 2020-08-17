@@ -7,7 +7,7 @@ window.onload = function(){
 
 	function forEachMsg(arr, action) { //Write our own version of forEach
 		for (let i = 0; i < arr.length; i++) {
-			action(arr[i].user, arr[i].content, arr[i].time); 
+			action(arr[i].usern, arr[i].msgcontent, arr[i].timesent); 
 		}
 	}
 
@@ -16,12 +16,14 @@ window.onload = function(){
 		const msgTitle = document.createElement('div');
 		const msgTime = document.createElement('div');
 		const msgText = document.createElement('div');
+		const date = new Date(time);
+		const timeStr = date.toLocaleTimeString() + " on " + date.toLocaleDateString();
 		msgElem.classList.add("mt-2");
 		msgElem.classList.add("mb-2");
 		msgTitle.classList.add("msgName");
 		msgTime.classList.add("msgTime");
 		msgTitle.innerText = user;
-		msgTime.innerText = time;
+		msgTime.innerText = timeStr;
 		msgText.innerText = messageStr;
 		msgElem.append(msgTitle);
 		msgElem.append(msgTime);
