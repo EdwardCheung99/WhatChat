@@ -6,8 +6,9 @@ body{
 	background-color: white;
 }
 
-.roomPage{
-
+.chatDelBtn:hover{
+	color: white;
+	background-color: #a10500;
 }
 
 .fullHeight{
@@ -16,10 +17,34 @@ body{
 
 .msgName{
 	font-weight: bold;
-	float: left;
 	margin-right: 5px;
+	display: inline-block;
 }
 
 .msgTime{
 	font-weight: lighter;
+	font-size: x-small;
+	display: inline-block;
+}
+
+.delButton{
+	background-color: red;
+	color: white;
+	border: none;
+	border-radius: 25px;
+}
+
+.delButton:hover {
+  background-color: #a10500;
+}
+
+.msgText{
+	word-wrap: break-word;
+}
+
+.msgDelete{
+	display: inline-block;
+	font-size: x-small;
+	margin-left: 5px;
+	margin-bottom: 0px;
 }

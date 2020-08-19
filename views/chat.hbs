@@ -6,7 +6,16 @@
 				<div class="row">
 				{{#each chats}}
 					<div class="col-md-4">
-						<a href="/chat/{{this.cname}}" class="list-group-item list-group-item-action">{{this.cname}}</a>
+						<div class="row no-gutters">
+							<div class="col-sm-10 mr-0">
+								<a href="/chat/{{this.cname}}" class="list-group-item list-group-item-action">{{this.cname}}</a>
+							</div>
+							<div class="col-sm-2 ml-0">
+								<form method="POST" action="/make/delete">
+									<button type="submit" class="list-group-item list-group-item-action chatDelBtn" value="{{this.cname}}" name=cName>X</button>
+								</form>
+							</div>
+						</div>
 					</div>
 				{{/each}}
 				</div>

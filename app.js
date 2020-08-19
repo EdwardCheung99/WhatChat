@@ -97,6 +97,23 @@ app.get('/chat/:cName', (req, res) => {
 	*/
 });
 
+//Route handling message deletes
+app.post('/chat/:cName', (req, res) => {
+	const chatName = req.params.cName;
+	const msgId = req.body.id;
+	const queryString = "DELETE FROM message WHERE id='" + msgId + "';"
+	pgPool.connect((err, client, done) => {
+		if (err) throw err;
+		client.query(queryString, (err, pgres) => {
+			if (err) {
+				return console.error('error running query', err);
+			}
+			done();
+			res.redirect('/chat/' + chatName);
+		});
+	});
+});
+
 //Handle post requests to make a new chat
 app.post('/make', (req, res) =>{
 	const chatName = req.body.cName.trim();
@@ -153,6 +170,28 @@ app.post('/make', (req, res) =>{
 	*/
 });
 
+//Post requests to delete chat
+app.post('/make/delete', (req, res) =>{
+	const chatName = req.body.cName;
+	const queryString = "DELETE FROM chatroom WHERE cname='" + chatName + "';"
+	pgPool.connect((err, client, done) => {
+		if (err) throw err;
+		client.query(queryString, (err, pgres) => {
+			if (err) {
+				return console.error('error running query', err);
+			}
+			const queryString2 = "DELETE FROM message WHERE cname='" + chatName + "';"
+			client.query(queryString2, (err, pgres) => {
+				if (err) {
+					return console.error('error running query', err);
+				}
+				done();
+				res.redirect('/chat');
+			});
+		});
+	});
+});
+
 server.listen(process.env.PORT || 3000);
 
 class mongoSearch{
@@ -194,14 +233,14 @@ io.on('connection', socket =>{
 		console.log('user connected');
 		const byUser = userFilter;
 		const withMsg = msgFilter;
-		let queryString = "SELECT usern, msgcontent, timeSent FROM message WHERE cname ='" + cName + "'";
+		let queryString = "SELECT usern, msgcontent, timeSent, id FROM message WHERE cname ='" + cName + "'";
 		if(byUser !== ""){
 			queryString += "AND usern ILIKE '%" + byUser + "%'";
 		}
 		if(withMsg != ""){
 			queryString += "AND msgcontent ILIKE '%" + withMsg + "%'";
 		}
-		queryString += ";";
+		queryString += " ORDER BY id DESC LIMIT 20;";
 
 		pgPool.connect((err, client, done) => {
 			if (err) throw err;
@@ -210,7 +249,7 @@ io.on('connection', socket =>{
 					return console.error('error running query', err);
 				}
 				done();
-				socket.emit('showOldMsgs', pgres.rows);
+				socket.emit('showOldMsgs', pgres.rows.reverse());
 			});
 		});
 		/* mongodb code
