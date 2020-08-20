@@ -129,7 +129,7 @@ app.post('/make', (req, res) =>{
 				return console.error('error running query', err);
 			}
 			if ((pgres.rows.length === 0) && (chatName !== '')){
-				let queryString = "INSERT into chatroom (cname, nummessages) VALUES ("+chatName+",0);";
+				let queryString = "INSERT into chatroom (cname, nummessages) VALUES ('"+chatName+"',0);";
 				client.query(queryString, (err, pgres2) => {
 					if (err) {
 						return console.error('error running query', err);
@@ -171,7 +171,7 @@ app.post('/make', (req, res) =>{
 });
 
 //Post requests to delete chat
-app.post('/make/delete', (req, res) =>{
+app.post('/deleteChat', (req, res) =>{
 	const chatName = req.body.cName;
 	const queryString = "DELETE FROM chatroom WHERE cname='" + chatName + "';"
 	pgPool.connect((err, client, done) => {
