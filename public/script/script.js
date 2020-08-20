@@ -1,5 +1,5 @@
 window.onload = function(){
-    const socket = io('http://localhost:3000'); //NOTE: URL CHANGES FOR DEPLOYMENT! LOCALHOST FOR TESTING PURPOSES ONLY
+    const socket = io('https://whatchatweb.herokuapp.com/'); //NOTE: URL CHANGES FOR DEPLOYMENT! LOCALHOST FOR TESTING PURPOSES ONLY
 	const msgForm = document.getElementById('sendMsg');
 	const msgContent = document.getElementById('messageContent');
 	const username = document.getElementById('username');
