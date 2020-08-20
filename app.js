@@ -1,9 +1,9 @@
-require( './db' );
+//require( './db' );
 require('dotenv').config();
 const path = require("path");
 const express = require('express');
 const session = require('express-session');
-const mongoose = require('mongoose');
+//const mongoose = require('mongoose');
 const postgres = require('pg');
 const app = express();
 const server = require('http').createServer(app);
@@ -20,8 +20,8 @@ const sessionOptions = {
 	resave: false 
 };
 app.use(session(sessionOptions)); //Initialize session
-const Message = mongoose.model('Message');
-const Chatroom = mongoose.model('Chatroom');
+//const Message = mongoose.model('Message');
+//const Chatroom = mongoose.model('Chatroom');
 const pgConnect = process.env.PG_CONNECT;
 const pgPool = new postgres.Pool({connectionString: pgConnect});
 
