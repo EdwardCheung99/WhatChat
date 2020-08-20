@@ -1,0 +1,50 @@
+body{
+	background-color: #f2f2f2;
+}
+
+.whiteBGcolor{
+	background-color: white;
+}
+
+.chatDelBtn:hover{
+	color: white;
+	background-color: #a10500;
+}
+
+.fullHeight{
+	height: 80vh;
+}
+
+.msgName{
+	font-weight: bold;
+	margin-right: 5px;
+	display: inline-block;
+}
+
+.msgTime{
+	font-weight: lighter;
+	font-size: x-small;
+	display: inline-block;
+}
+
+.delButton{
+	background-color: red;
+	color: white;
+	border: none;
+	border-radius: 25px;
+}
+
+.delButton:hover {
+  background-color: #a10500;
+}
+
+.msgText{
+	word-wrap: break-word;
+}
+
+.msgDelete{
+	display: inline-block;
+	font-size: x-small;
+	margin-left: 5px;
+	margin-bottom: 0px;
+}

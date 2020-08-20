@@ -1,18 +1,20 @@
-<div class="row justify-content-center">
-	<div class="w-25 p-4 mt-5 p-0 border border-dark rounded-sm text-center">
-		<div class="row justify-content-center m-4">
-			<h1>Make a New Chat</h1>
-		</div>
-		<form method="POST" action="/make">
-			<div class="form-group row justify-content-center">
-				<label for="newChatName" class="col-form-label mr-3">Name:</label>
-				<div>
-					<input type="text" id="newChatName" class="form-control pr-5" placeholder="Enter New Chat Name" name="cName">
+<div class="container">
+	<div class="row justify-content-center">
+		<div class="col-sm-12 p-4 mt-5 p-0 border-sm rounded-lg text-center shadow-lg whiteBGcolor">
+			<div class="row justify-content-center m-4 mb-5">
+				<h1>Make a New Chat</h1>
+			</div>
+			<form method="POST" action="/make">
+				<div class="form-group justify-content-center row no-gutters">
+					<!--<label for="newChatName" class="col-sm-2 col-form-label">Name:</label>-->
+					<div class="col-sm-10">
+						<input type="text" id="newChatName" class="form-control" placeholder="Enter New Chat Name" name="cName" autocomplete="off">
+					</div>
+					<div class="col-sm-2">
+						<button type="submit" class="btn btn-primary w-75">Submit</button>
+					</div>
 				</div>
-			</div>
-			<div class="d-flex justify-content-end col-sm-11 ml-1 mb-4">
-				<button type="submit" class="btn btn-primary">Submit</button>
-			</div>
-		</form>
+			</form>
+		</div>
 	</div>
 </div>

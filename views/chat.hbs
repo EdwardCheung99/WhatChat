@@ -1,8 +1,36 @@
-<div id="showChats" class="row justify-content-center">
-		<ul class="list-group col-sm-3 mt-5 p-5 border border-dark rounded-sm">
-		<h1 class="list-group-item-heading">All Chats</h1>
-		{{#each chats}}
-			<a href="/chat/{{this.cName}}" class="list-group-item list-group-item-action">{{this.cName}}</a>
-		{{/each}}
-		</ul>
+<div class="container">
+	<div id="showChats" class="row justify-content-center">
+		<div class="col-sm-12 mt-5 p-5 border-sm rounded-lg shadow-lg text-center whiteBGcolor">
+			<ul class="list-group">
+				<h1 class="list-group-item-heading mb-5">Visit a Chat</h1>
+				<div class="row">
+				{{#each chats}}
+					<div class="col-md-4">
+						<div class="row no-gutters">
+							<div class="col-sm-10 mr-0">
+								<a href="/chat/{{this.cname}}" class="list-group-item list-group-item-action">{{this.cname}}</a>
+							</div>
+							<div class="col-sm-2 ml-0">
+								<form method="POST" action="/deleteChat">
+									<button type="submit" class="list-group-item list-group-item-action chatDelBtn" value="{{this.cname}}" name=cName>X</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				{{/each}}
+				</div>
+			</ul>
+			<div class="mt-5 mb-2">Can't find a specific chat? Search for it here:</div>
+			<form method="GET" action="/chat">
+				<div class="form-group justify-content-center row no-gutters">
+					<div class="col-sm-10">
+						<input type="text" class="form-control" placeholder="Search for a Chat" name="cName" autocomplete="off">
+					</div>
+					<div class="col-sm-2">
+						<button type="submit" class="btn btn-primary w-75">Search</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
 </div>
