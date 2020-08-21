@@ -281,20 +281,21 @@ io.on('connection', socket =>{
 			console.log('Invalid message. No user name or no message content.')
 		}
 		else{
-			let queryString = "INSERT into message (usern, msgcontent, cname, timesent) VALUES ('"+userName+"', '"+message+"', '"+cName+"', NOW());";
+			let queryString = "INSERT into message (usern, msgcontent, cname, timesent) VALUES ('"+userName+"', '"+message+"', '"+cName+"', NOW()) RETURNING id;";
 			pgPool.connect((err, client, done) => {
 				if (err) throw err;
 				client.query(queryString, (err, pgres) => {
 					if (err) {
 						return console.error('error running query', err);
 					}
+					const deleteId = pgres.rows[0].id;
 					let queryString2 = "UPDATE chatroom SET nummessages = nummessages + 1 WHERE cname = '" + cName + "';";
 					client.query(queryString2, (err, pgres) => {
 						if (err) {
 							return console.error('error running query', err);
 						}
 						done();
-						io.to(cName).emit('displayNewMsg', userName, message, currTime);
+						io.to(cName).emit('displayNewMsg', userName, message, currTime, deleteId);
 					});
 				});
 			});
