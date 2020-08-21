@@ -108,7 +108,7 @@ app.post('/chat/:cName', (req, res) => {
 			if (err) {
 				return console.error('error running query', err);
 			}
-			let queryString2 = "UPDATE chatroom SET nummessages = nummessages - 1 WHERE cname = '" + cName + "';";
+			let queryString2 = "UPDATE chatroom SET nummessages = nummessages - 1 WHERE cname = '" + chatName + "';";
 			client.query(queryString2, (err, pgres) => {
 				if (err) {
 					return console.error('error running query', err);
