@@ -6,5 +6,5 @@ A Real Time Chatroom Application developed using Node.js and Socket.IO. Users ar
 https://whatchatweb.herokuapp.com/ 
 
 # How to Run
-1. Set the environment variable for "DB_CONN" as the connection string to a MongoDB database. This can be manually accomplished through the command line or via a .env file.
+1. Set the environment variable for "PG_CONNECT" as the connection string to a PostgreSQL database. This can be manually accomplished through the command line or via a .env file.
 2. In the main directory for the app, run "npm install" followed by "node app.js"
