@@ -1,3 +1,12 @@
+// NOTE: THIS IS PREVIOUS CODE FROM WHEN THIS APP USED MONGODB. 
+
+
+
+
+
+
+
+
 // 3RD DRAFT DATA MODEL
 const mongoose = require('mongoose');
 
