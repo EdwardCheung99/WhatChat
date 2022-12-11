@@ -18,7 +18,7 @@
   "homepage": "https://github.com/nyu-csci-ua-0480-001-fall-2019/edwardcheung99-final-project#readme",
   "dependencies": {
     "dotenv": "^8.2.0",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-session": "^1.17.0",
     "hbs": "^4.0.6",
     "mongoose": "^5.7.7",
